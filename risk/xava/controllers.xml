@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE controllers SYSTEM "dtds/controllers.dtd">
+
+<!-- OpenXavaTest -->
+
+<controllers> 
+	
+	<object name="xavatest_activeYear" class="java.lang.Integer" value="2004" scope="global"/>
+	<object name="xavatest_defaultYear" class="java.lang.Integer" value="1999"/>		
+	<object name="xavatest_limitZone" class="java.lang.Integer" value="999"/>
+	<object name="xavatest_invoiceValues" class="java.util.Map"/>
+		
+	<!-- 
+		You can define attribute 'label' and 'description' for action, but
+		the resources in 'Labels.properties' or '${application}-labels.properties'
+		take preference over it.
+		That is to say, it is better specify the labels in resources files and not here.		
+	-->	
+	
+	<controller name="ProjectController">
+	<extends controller="Typical"/>	
+		<action name="save" mode="detail"
+			by-default="if-possible"
+			class="org.openxava.actions.SaveAction"
+			image="save.gif"
+			keystroke="Control S">
+			<set property="resetAfter" value="false"/>	
+			</action>			
+		<action name="show" mode="detail" class="com.glp.solution.risk.web.action.ProjectShowDataAction"/>
+		<action name="calculate" mode="detail" class="com.glp.solution.risk.web.action.ProjectShowDataAction"/>
+	</controller>
+	
+</controllers>
